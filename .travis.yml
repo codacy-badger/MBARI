@@ -10,5 +10,5 @@ script:
   - ng build --prod
 after_success:
   - if [ "$TRAVIS_BRANCH" = "master" -a "$TRAVIS_PULL_REQUEST" = "false" ]; then
-      npx angular-cli-ghpages --repo=https://{$GH_TOKEN}@github.com/cst438sp19/cst438sp19.github.io.git --dir=dist/MBARI --no-silent ;
+      npx angular-cli-ghpages --repo=https://$GH_TOKEN@github.com/cst438sp19/cst438sp19.github.io.git --dir=dist/MBARI --no-silent --branch=master ;
     fi
