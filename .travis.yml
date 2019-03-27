@@ -1,0 +1,14 @@
+language: node_js
+node_js:
+  - "9"
+dist: trusty
+sudo: required
+before_script:
+  - npm install -g @angular/cli
+script:
+  - ng lint
+  - ng build --prod
+after_success:
+  - if [ "$TRAVIS_BRANCH" = "master" -a "$TRAVIS_PULL_REQUEST" = "false" ]; then
+      npx angular-cli-ghpages --repo=https://github.com/cst438sp19/cst438sp19.github.io.git ;
+    fi
